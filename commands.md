@@ -32,6 +32,11 @@ docker-compose -f stack-billing.yml stop
 docker-compose -f stack-billing.yml up -d --force-recreate
 ```
 
+#### Delete images
+```
+docker images prune
+```
+
 #### Delete networks
 ```
 docker network prune
@@ -40,4 +45,9 @@ docker network prune
 #### Stop all containers
 ```
 docker stop $(docker ps -a -q)
+```
+
+#### Create images
+```
+docker-compose -f stack-billing.yml build --no-cache
 ```
