@@ -31,3 +31,13 @@ docker-compose -f stack-billing.yml stop
 
 docker-compose -f stack-billing.yml up -d --force-recreate
 ```
+
+#### Delete networks
+```
+docker network prune
+```
+
+#### Stop all containers
+```
+docker stop $(docker ps -a -q)
+```
