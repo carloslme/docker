@@ -75,6 +75,7 @@ services:
     networks:
       - env_prod      
     deploy:      
+        replicas: 2
         resources:
            limits: 
               cpus: "0.15"
@@ -88,7 +89,7 @@ services:
       - billingapp-back-prod
 #rango de puertos para escalar    
     ports:
-      - 8081:80
+      - 8081-8082:80
 
 
 #ENV_PREP
@@ -117,7 +118,8 @@ services:
       context: ./angular 
     networks:     
       - env_prep
-    deploy:      
+    deploy: 
+        replicas: 2
         resources:
            limits: 
               cpus: "0.15"
@@ -131,7 +133,7 @@ services:
       - billingapp-back-prep
 #rango de puertos para escalar    
     ports:
-      - 7081:81
+      - 7081-7082:81
 
 
 networks:
