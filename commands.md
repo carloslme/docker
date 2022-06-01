@@ -23,3 +23,11 @@ your_project:
                 cpus: 0.1
                 memory: 128M
 ```
+
+Then stop the containers, and recreate them.
+
+```
+docker-compose -f stack-billing.yml stop
+
+docker-compose -f stack-billing.yml up -d --force-recreate
+```
