@@ -15,7 +15,7 @@ services:
           memory: 250M
         # dedicated resources, keep them as minimal as possible
         reservations:
-          cpus: 0.1
+          cpus: "0.1"
           memory: 128M
     volumes:
         #allow *.sql, *.sql.gz, or *.sh and is execute only if data directory is empty
@@ -41,7 +41,7 @@ services:
           memory: 250M
         # dedicated resources, keep them as minimal as possible
         reservations:
-          cpus: 0.1
+          cpus: "0.1"
           memory: 128M
 #Billin app backend service
   billingapp-back:
@@ -65,7 +65,7 @@ services:
           memory: 500M
         # dedicated resources, keep them as minimal as possible
         reservations:
-          cpus: 0.1
+          cpus: "0.1"
           memory: 128M
 #Billin app frontend service
   billingapp-front:
@@ -83,5 +83,5 @@ services:
           memory: 250M
         # dedicated resources, keep them as minimal as possible
         reservations:
-          cpus: 0.1
+          cpus: "0.1"
           memory: 128M
