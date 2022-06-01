@@ -47,6 +47,11 @@ docker network prune
 docker stop $(docker ps -a -q)
 ```
 
+#### Delete all stopped containers
+```
+docker container prune
+```
+
 #### Create images
 ```
 docker-compose -f stack-billing.yml build --no-cache
