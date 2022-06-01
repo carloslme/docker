@@ -8,6 +8,15 @@ services:
     restart: always
     ports:
       - 5432:5432
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15" # this is the % of total memory
+          memory: 250M
+        # dedicated resources, keep them as minimal as possible
+        reservations:
+          cpus: 0.1
+          memory: 128M
     volumes:
         #allow *.sql, *.sql.gz, or *.sh and is execute only if data directory is empty
       - ./dbfiles:/docker-entrypoint-initdb.d
@@ -25,6 +34,15 @@ services:
       - postgres_db
     ports:
        - 9090:8080
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15" # this is the % of total memory
+          memory: 250M
+        # dedicated resources, keep them as minimal as possible
+        reservations:
+          cpus: 0.1
+          memory: 128M
 #Billin app backend service
   billingapp-back:
     build:
@@ -40,6 +58,15 @@ services:
       - postgres_db
     ports:
       - 8080:8080 
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15" # this is the % of total memory
+          memory: 500M
+        # dedicated resources, keep them as minimal as possible
+        reservations:
+          cpus: 0.1
+          memory: 128M
 #Billin app frontend service
   billingapp-front:
     build:
@@ -49,3 +76,12 @@ services:
       - billingapp-back
     ports:
       - 80:80 
+    deploy:
+      resources:
+        limits:
+          cpus: "0.15" # this is the % of total memory
+          memory: 250M
+        # dedicated resources, keep them as minimal as possible
+        reservations:
+          cpus: 0.1
+          memory: 128M
